@@ -1,0 +1,29 @@
+{
+  "name": "electron_poc",
+  "version": "0.0.1",
+  "description": "electron with angular js poc",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "electron",
+    "angular",
+    "grunt",
+    "poc"
+  ],
+  "author": "Joao Nabais",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.2",
+    "angular-route": "^1.5.2",
+    "electron-prebuilt": "^0.37.2"
+  },
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-sass": "^1.0.0"
+  }
+}
