@@ -1,18 +1,40 @@
 module.exports = function (grunt) {
 
   grunt.initConfig({
-    sass: {
-      dist: {
-        files: {
-          'app/app.css': 'css/global/main.scss'
-        }
+    watch: {
+      scripts: {
+        files: ['<%= jshint.files %>'],
+        tasks: ['jshint']
+      },
+      styles: {
+        files: ['css/global/main.scss'],
+        tasks: ['sass']
       }
     },
-    jshint: ['Gruntfile.js', 'app/app.js']
+    sass: {
+      options: {
+		       sourceMap: true
+	    },
+	    dist: {
+		      files: {
+			         'app/app.css': 'css/global/main.scss'
+		      }
+      }
+    },
+    jshint: {
+      files: [
+        'Gruntfile.js',
+        'app/app.js'
+      ],
+      options: {
+        jshintrc: '.jshintrc',
+      }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
-  grunt.registerTask('default', ['jshint', 'sass']);
+  grunt.registerTask('default', ['watch']);
 };
